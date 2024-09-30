@@ -110,16 +110,5 @@ int main()
 	receiverthread.join();
 
 
-	//send and recieve
-	/*string message = "hello world";
-	int bytesent = send(s, message.c_str(), message.length(), 0);
-	if (bytesent == SOCKET_ERROR)
-	{
-		cout << "Send failed" << endl;
-	}
-	*/
-
-	// close the socket
-
 	return 0;
 }
