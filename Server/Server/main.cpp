@@ -57,8 +57,22 @@ void InteractWithClient(SOCKET clientSocket, vector<SOCKET>& clients)
 }
 
 
-int main()
+int main(int argc, char* argv[])
 {
+	if (argc != 2)
+	{
+		cout << "Usage: " << argv[0] << " <port>" << endl;
+		return 1;
+	}
+
+	int port = atoi(argv[1]);
+	if (port <= 0 || port > 65535)
+	{
+		cout << "Invalid port number. Please specify a port between 1 and 65535." << endl;
+		return 1;
+	}
+
+
 	if (!Initialize())
 	{
 		cout << "Could not initialize Winsock 2" << endl;
@@ -67,7 +81,6 @@ int main()
 	else
 	{
 		//create the socket
-		cout << "server program" << endl;
 		SOCKET listenSocket = socket(AF_INET, SOCK_STREAM, 0);
 
 		if (listenSocket == INVALID_SOCKET)
@@ -76,10 +89,8 @@ int main()
 			return 1;
 		}
 
-		//get ip and port it well run on local host 12345
-
 		//create address structure
-		int port = 12345;
+		//int port = 8989;
 		sockaddr_in serveraddr;
 		serveraddr.sin_family = AF_INET;
 		serveraddr.sin_port = htons(port); //host to network short
@@ -94,7 +105,6 @@ int main()
 		}
 
 		//Bind the ip and port with the socket created
-			//bind
 		if (bind(listenSocket, reinterpret_cast<sockaddr*>(&serveraddr), sizeof(serveraddr)) == SOCKET_ERROR)
 		{
 			cout << "Bind failed" << endl;
@@ -104,7 +114,6 @@ int main()
 		}
 
 		//listen on the socket
-			//listen
 		if (listen(listenSocket, SOMAXCONN) == SOCKET_ERROR)
 		{
 			cout << "Listen failed" << endl;
@@ -113,7 +122,7 @@ int main()
 			return 1;
 		}
 
-		cout << "Server has started listening on port: " << port << " ." << endl;
+		cout << "Server has connected on port: " << port << " ." << endl;
 		
 		vector<SOCKET> clients;
 

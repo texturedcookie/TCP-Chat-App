@@ -15,6 +15,8 @@ bool Initialize()
 	WSADATA data;
 	return WSAStartup(MAKEWORD(2, 2), &data) == 0;
 }
+
+
 void SendMsg(SOCKET s)
 {
 	cout << "Enter your chat name: " << endl;
@@ -41,6 +43,7 @@ void SendMsg(SOCKET s)
 	WSACleanup();
 }
 
+
 void ReceiveMsg(SOCKET s)
 {
 	char buffer[4096];
@@ -64,8 +67,22 @@ void ReceiveMsg(SOCKET s)
 	WSACleanup();
 }
 
-int main()
+
+int main(int argc, char* argv[])
 {
+	if (argc != 2)
+	{
+		cout << "Usage: " << argv[0] << " <port>" << endl;
+		return 1;
+	}
+
+	int port = atoi(argv[1]);
+	if (port <= 0 || port > 65535)
+	{
+		cout << "Invalid port number. Please specify a port between 1 and 65535." << endl;
+		return 1;
+	}
+
 	// initialize winsock
 	if (!Initialize())
 	{
@@ -84,7 +101,7 @@ int main()
 		return 1;
 	}
 
-	int port = 12345;
+
 	string serveraddress = "127.0.0.1";
 	sockaddr_in serveraddr;
 	serveraddr.sin_family = AF_INET;
@@ -102,7 +119,7 @@ int main()
 		return 1;
 	}
 
-	cout << "Successfully connected to server" << endl;
+	cout << "Successfully connected to localhost: " << port << endl;
 	thread senderthread(SendMsg, s);
 	thread receiverthread(ReceiveMsg, s);
 
