@@ -82,7 +82,6 @@ int main(int argc, char* argv[])
 	{
 		//create the socket
 		SOCKET listenSocket = socket(AF_INET, SOCK_STREAM, 0);
-
 		if (listenSocket == INVALID_SOCKET)
 		{
 			cout << "socket creation failed" << endl;
@@ -90,12 +89,11 @@ int main(int argc, char* argv[])
 		}
 
 		//create address structure
-		//int port = 8989;
 		sockaddr_in serveraddr;
 		serveraddr.sin_family = AF_INET;
 		serveraddr.sin_port = htons(port); //host to network short
 
-		//convert the ip address put it inside the sin_family in binary
+		//convert the ip address AND put it inside the sin_family in binary
 		if (InetPton(AF_INET, _T("0.0.0.0"), &serveraddr.sin_addr) != 1)
 		{
 			cout << "setting address structure failed" << endl;

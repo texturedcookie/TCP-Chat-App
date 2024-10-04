@@ -70,13 +70,13 @@ void ReceiveMsg(SOCKET s)
 
 int main(int argc, char* argv[])
 {
-	if (argc != 2)
+	if (argc != 3)
 	{
 		cout << "Usage: " << argv[0] << " <port>" << endl;
 		return 1;
 	}
 
-	int port = atoi(argv[1]);
+	int port = atoi(argv[2]);
 	if (port <= 0 || port > 65535)
 	{
 		cout << "Invalid port number. Please specify a port between 1 and 65535." << endl;
@@ -90,7 +90,8 @@ int main(int argc, char* argv[])
 
 		return 1;
 	}
-
+	else
+	{
 
 	//create socket
 	SOCKET s;
@@ -128,4 +129,5 @@ int main(int argc, char* argv[])
 
 
 	return 0;
+	}
 }
