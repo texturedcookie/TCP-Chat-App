@@ -1,3 +1,1 @@
-﻿  main.cpp
-C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\Server\main.cpp(46,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Server.vcxproj -> C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\x64\Debug\Server.exe
+﻿  Server.vcxproj -> C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\x64\Debug\Server.exe
