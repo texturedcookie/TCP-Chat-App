@@ -19,10 +19,13 @@ bool Initialize()
 
 void SendMsg(SOCKET s)
 {
+	cout << "This is a number guesser game, gues a number between 1-100 before some else does " << endl;
 	cout << "Enter your chat name: " << endl;
 	string name;
 	getline(cin, name);
 	string message;
+
+
 	while (1)
 	{
 		getline(cin, message);

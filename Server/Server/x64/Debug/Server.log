@@ -1,1 +1,9 @@
-﻿  Server.vcxproj -> C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\x64\Debug\Server.exe
+﻿  main.cpp
+C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\Server\main.cpp(65,34): warning C4101: 'e': unreferenced local variable
+C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\Server\main.cpp(68,30): warning C4101: 'e': unreferenced local variable
+C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\Server\main.cpp(125,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\Server\main.cpp(129,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\Server\main.cpp(147,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\Server\main.cpp(148,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\Server\main.cpp(252,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Server.vcxproj -> C:\Users\lenao\OneDrive\Documents\GitHub\Chat-App\Server\x64\Debug\Server.exe
